@@ -1,20 +1,20 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
-    pages: {
-      aboutMe: {
+    title: 'Unnatural',
+    pages: [
+      {
         name: 'About me',
         url: '/about-me/'
       },
-      portfolio: {
+      {
         name: 'Portfolio',
         url: '/portfolio/'
       },
-      contact: {
+      {
         name: 'Contact',
         url: '/contact/'
       }
-    }
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',

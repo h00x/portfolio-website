@@ -14,18 +14,8 @@ const Layout = ({ children }) => (
         siteMetadata {
           title
           pages {
-            aboutMe {
-              name
-              url
-            }
-            portfolio {
-              name
-              url
-            }
-            contact {
-              name
-              url
-            }
+            name
+            url
           }
         }
       }

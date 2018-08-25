@@ -31,20 +31,19 @@ const Header = ({ siteTitle, pages }) => (
           margin: '1rem 0 0 0'
         }}>
 
-        {Object.keys(pages).map((item) => {
-          const menuItem = pages[item]
-          return (<li key={menuItem.name} style={{ 
+        {pages.map((item, index) => {
+          return (<li key={index} style={{ 
                 display: 'inline-block',
                 marginRight: '1rem'
               }}>
               <Link
-                to={menuItem.url}
+                to={item.url}
                 style={{
                   color: 'white',
                   textDecoration: 'none',
                 }}
               >
-                {menuItem.name}
+                {item.name}
               </Link>
             </li>
           )
