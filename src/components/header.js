@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, pages }) => (
   <div
     style={{
       background: 'rebeccapurple',
@@ -26,6 +26,30 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <ul style={{
+          listStyle: 'none',
+          margin: '1rem 0 0 0'
+        }}>
+
+        {Object.keys(pages).map((item) => {
+          const menuItem = pages[item]
+          return (<li key={menuItem.name} style={{ 
+                display: 'inline-block',
+                marginRight: '1rem'
+              }}>
+              <Link
+                to={menuItem.url}
+                style={{
+                  color: 'white',
+                  textDecoration: 'none',
+                }}
+              >
+                {menuItem.name}
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   </div>
 )
