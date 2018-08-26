@@ -1,13 +1,42 @@
 import React from 'react'
-
 import Layout from '../components/layout'
+import Container from '../components/container'
+import { rhythm } from '../utils/typography'
+import { graphql } from 'gatsby'
 
-const ContactPage = () => (
-  <Layout>
-    <h1>Contact</h1>
-    <p>Come in contact with me</p>
-    <p>Now go build something great.</p>
-  </Layout>
+const ContactPage = ({ data }) => (
+  <Container colors={data.site.siteMetadata.colors}>
+    <Layout
+      title={data.site.siteMetadata.title}
+      pages={data.site.siteMetadata.pages}
+      colors={data.site.siteMetadata.colors}
+    >
+      <h1>Contact</h1>
+      <p>Come in contact with me</p>
+      <p>Now go build something great.</p>
+    </Layout>
+  </Container>
 )
 
 export default ContactPage
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        pages {
+          name
+          url
+        }
+        colors {
+          darkGrey
+          creme
+          lightGreen
+          darkGreen
+          pink
+        }
+      }
+    }
+  }
+`
