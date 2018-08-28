@@ -1,24 +1,24 @@
 module.exports = {
   siteMetadata: {
     title: 'Unnatural',
-    pages: [
-      {
+    pages: {
+      home: {
         name: 'Home',
         url: '/'
       },
-      {
-        name: 'About me',
-        url: '/about-me/'
+      aboutDave: {
+        name: 'About Dave',
+        url: '/about-dave/'
       },
-      {
+      portfolio: {
         name: 'Portfolio',
         url: '/portfolio/'
       },
-      {
+      contact: {
         name: 'Contact',
         url: '/contact/'
       }
-    ],
+    },
     colors: {
       darkGrey: '#393F43',
       creme: '#F9F9EA',
@@ -47,6 +47,18 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        // your wordpress source
+        baseUrl: `localhost:8888/backend/`,
+        protocol: `http`,
+        // is it hosted on wordpress.com, or self-hosted?
+        hostingWPCOM: false,
+        // does your site use the Advanced Custom Fields Plugin?
+        useACF: true
+      }
     },
     'gatsby-plugin-offline',
   ],

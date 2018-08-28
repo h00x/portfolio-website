@@ -5,6 +5,9 @@ html {
 body {
   margin: 0;
 }
+html, body {
+  height: 100%;
+}
 article,
 aside,
 details,
@@ -527,4 +530,9 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+#___gatsby,
+#___gatsby > div {
+  height: 100%;
 }

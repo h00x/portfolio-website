@@ -12,7 +12,7 @@ const AboutMePage = ({ data }) => (
       colors={data.site.siteMetadata.colors}
     >
       <h1>About Me</h1>
-      <p>Something about myself</p>
+      <p style={{ marginTop: rhythm(3) }}>Something about myself</p>
       <p>Now go build something great.</p>
     </Layout>
   </Container>
@@ -26,8 +26,22 @@ export const query = graphql`
       siteMetadata {
         title
         pages {
-          name
-          url
+          home {
+            name
+            url
+          }
+          aboutDave {
+            name
+            url
+          }
+          portfolio {
+            name
+            url
+          }
+          contact {
+            name
+            url
+          }
         }
         colors {
           darkGrey

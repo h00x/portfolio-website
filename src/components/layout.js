@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import { rhythm } from "../utils/typography"
 import Header from './header'
+import Footer from './footer'
 
 const Layout = ({ children, title, pages, colors }) => (
   <>
@@ -17,7 +18,7 @@ const Layout = ({ children, title, pages, colors }) => (
       <html lang="en" />
     </Helmet>
     <Header pages={pages} colors={colors}/>
-    <div
+    <section
       style={{
         margin: '0 auto',
         maxWidth: 960,
@@ -26,7 +27,8 @@ const Layout = ({ children, title, pages, colors }) => (
       }}
     >
       {children}
-    </div>
+    </section>
+    <Footer pages={pages} colors={colors} />
   </>
 )
 
