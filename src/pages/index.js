@@ -12,6 +12,7 @@ const IndexPage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
+    {console.log(data.allWordpressPage.edges)}
       <h2 style={{ fontWeight: 'normal' }}>Hi!</h2>
       <h1 style={{ fontSize: rhythm(3) }}>
         I'm{' '}
@@ -88,6 +89,13 @@ export const query = graphql`
           lightGreen
           darkGreen
           pink
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          content
         }
       }
     }

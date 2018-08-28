@@ -11,8 +11,8 @@ const AboutMePage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>About Me</h1>
-      <p style={{ marginTop: rhythm(3) }}>Something about myself</p>
+      <h1>{data.allWordpressPage.edges[1].node.title}</h1>
+      <p style={{ marginTop: rhythm(1) }}>{data.allWordpressPage.edges[1].node.acf.about_dave_body_text}</p>
       <p>Now go build something great.</p>
     </Layout>
   </Container>
@@ -49,6 +49,17 @@ export const query = graphql`
           lightGreen
           darkGreen
           pink
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          content
+          title
+          acf {
+            about_dave_body_text
+          }
         }
       }
     }
