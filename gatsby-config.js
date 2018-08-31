@@ -52,12 +52,13 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your wordpress source
-        baseUrl: `localhost:8888/backend/`,
+        baseUrl: `188.166.115.189/backend/`,
         protocol: `http`,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
         // does your site use the Advanced Custom Fields Plugin?
-        useACF: true
+        useACF: true,
+        verboseOutput: true
       }
     },
     'gatsby-plugin-offline',
