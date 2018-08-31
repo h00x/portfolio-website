@@ -11,7 +11,7 @@ const Header = ({ pages, colors }) => (
       margin: '0 auto',
       maxWidth: 960,
       paddingTop: rhythm(3),
-      paddingBottom: rhythm(3),
+      paddingBottom: rhythm(1),
       display: 'flex',
       alignItems: 'center',
     }}

@@ -3,6 +3,14 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import { rhythm } from '../utils/typography'
 import { graphql } from 'gatsby'
+import Img from "gatsby-image";
+
+const generateImageList = (obj) => {
+  let imgList = obj.map((item, index) => {
+    return <Img key={index} sizes={item.image.localFile.childImageSharp.sizes} />
+  });
+  return imgList;
+}
 
 const PortfolioItem = ({ data }) => (
   <Container colors={data.site.siteMetadata.colors}>
@@ -13,7 +21,7 @@ const PortfolioItem = ({ data }) => (
     >
       <h1>{data.itemData.title}</h1>
       <p style={{ marginTop: rhythm(1) }}>{data.itemData.acf.intro_text}</p>
-      {console.log(data)}
+      {generateImageList(data.itemData.acf.portfolio_images)}
     </Layout>
   </Container>
 )
@@ -63,11 +71,20 @@ query ($id: Int!){
       featured_image {
         source_url
       }
-      portfolio_image_1 {
-        source_url
+      portfolio_images {
+        image {
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 960, quality: 80) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+            }
+          }
+        }
+        text
       }
-      portfolio_text_1
     }
   }
+
 }
 `

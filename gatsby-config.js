@@ -58,8 +58,17 @@ module.exports = {
         hostingWPCOM: false,
         // does your site use the Advanced Custom Fields Plugin?
         useACF: true,
-        verboseOutput: true
+        // verboseOutput: true
       }
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
     'gatsby-plugin-offline',
   ],
