@@ -4,14 +4,6 @@ import Container from '../components/container'
 import { rhythm } from '../utils/typography'
 import { graphql } from 'gatsby'
 
-let getObj = (obj) => { 
-  obj.forEach(arr => {
-    if (arr.node.wordpress_id === 12){
-      console.log(arr)
-    }
-  })
-}
-
 const PortfolioItem = ({ data }) => (
   <Container colors={data.site.siteMetadata.colors}>
     <Layout
@@ -19,9 +11,9 @@ const PortfolioItem = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>Portfolio item</h1>
-      <p style={{ marginTop: rhythm(3) }}>Beautifull pictures</p>
-      {getObj(data.allWordpressWpPortfolio.edges)}
+      <h1>{data.itemData.title}</h1>
+      <p style={{ marginTop: rhythm(1) }}>{data.itemData.acf.intro_text}</p>
+      {console.log(data)}
     </Layout>
   </Container>
 )
@@ -29,57 +21,53 @@ const PortfolioItem = ({ data }) => (
 export default PortfolioItem
 
 export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        pages {
-          home {
-            name
-            url
-          }
-          aboutDave {
-            name
-            url
-          }
-          portfolio {
-            name
-            url
-          }
-          contact {
-            name
-            url
-          }
+query ($id: Int!){
+  site {
+    siteMetadata {
+      title
+      pages {
+        home {
+          name
+          url
         }
-        colors {
-          darkGrey
-          creme
-          lightGreen
-          darkGreen
-          pink
+        aboutDave {
+          name
+          url
+        }
+        portfolio {
+          name
+          url
+        }
+        contact {
+          name
+          url
         }
       }
-    }
-    allWordpressWpPortfolio {
-      edges {
-        node {
-          wordpress_id
-          date
-          status
-          title
-          slug
-          acf {
-            intro_text
-            featured_image {
-              source_url
-            }
-            portfolio_image_1 {
-              source_url
-            }
-            portfolio_text_1
-          }
-        }
+      colors {
+        darkGrey
+        creme
+        lightGreen
+        darkGreen
+        pink
       }
     }
   }
+  itemData: wordpressWpPortfolio(wordpress_id: {eq: $id}) {
+    wordpress_id
+    date
+    status
+    title
+    slug
+    acf {
+      intro_text
+      featured_image {
+        source_url
+      }
+      portfolio_image_1 {
+        source_url
+      }
+      portfolio_text_1
+    }
+  }
+}
 `

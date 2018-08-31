@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           component: path.resolve(`./src/templates/portfolio-template.js`),
           // If you have a layout component at src/layouts/blog-layout.js
           context: {
-            id: node.slug,
+            id: node.wordpress_id,
           },
         });
       })
