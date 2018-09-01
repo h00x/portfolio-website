@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Container from '../components/container'
-import Button from '../components/button'
+import BottomCTA from '../components/bottom-c2a'
 import { rhythm } from '../utils/typography'
 import { Link, graphql } from 'gatsby'
+import PortfolioList from '../components/portfolio-list'
 
 const IndexPage = ({ data }) => (
   <Container colors={data.site.siteMetadata.colors}>
@@ -12,7 +13,6 @@ const IndexPage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-    {console.log(data.allWordpressPage.edges)}
       <h2 style={{ fontWeight: 'normal' }}>Hi!</h2>
       <h1 style={{ fontSize: rhythm(3) }}>
         I'm{' '}
@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => (
         </Link>
         . Beekeper and avid surfer.{' '}
       </h1>
-      <h2 style={{ fontSize: rhythm(1.5), fontWeight: '400' }}>
+      <h2 style={{ fontSize: rhythm(1.5), fontWeight: '400', marginBottom: rhythm(3) }}>
         Currently working at{' '}
         <Link
           to={data.site.siteMetadata.pages.contact.url}
@@ -45,15 +45,14 @@ const IndexPage = ({ data }) => (
           Hellodialog.com
         </Link>
       </h2>
-      <div style={{width: '100%', textAlign: 'center', marginTop: rhythm(3)}}>
-        <h2 style={{ fontWeight: 'normal', marginBottom: rhythm(1) }}>Do you need a website?</h2>
-        <Button
-          link={data.site.siteMetadata.pages.contact.url}
-          text="Get in touch"
-          color={data.site.siteMetadata.colors.darkGrey}
-          hoverColor={data.site.siteMetadata.colors.creme}
-        />
-      </div>
+      <PortfolioList obj={data.portfolioItems.edges} three={true} />
+      <BottomCTA
+        link={data.site.siteMetadata.pages.contact.url}
+        buttonText="Get in touch"
+        titleText="Do you need a website?"
+        color={data.site.siteMetadata.colors.darkGrey}
+        hoverColor={data.site.siteMetadata.colors.creme}
+      />
     </Layout>
   </Container>
 )
@@ -96,6 +95,28 @@ export const query = graphql`
       edges {
         node {
           content
+        }
+      }
+    }
+    portfolioItems: allWordpressWpPortfolio(
+      sort: { fields: [date], order: DESC }
+    ) {
+      edges {
+        node {
+          wordpress_id
+          slug
+          date
+          acf {
+            featured_image {
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 960, quality: 80) {
+                    ...GatsbyImageSharpSizes_withWebp
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

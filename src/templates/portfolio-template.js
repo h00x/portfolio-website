@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import { rhythm } from '../utils/typography'
 import { graphql } from 'gatsby'
+import BottomCTA from '../components/bottom-c2a'
 import Img from "gatsby-image";
 
 const generateImageList = (obj) => {
@@ -19,9 +20,18 @@ const PortfolioItem = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>{data.itemData.title}</h1>
-      <p style={{ marginTop: rhythm(1) }}>{data.itemData.acf.intro_text}</p>
+      <div style={{textAlign: "center"}}>
+        <h1>{data.itemData.title}</h1>
+        <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2) }}>{data.itemData.acf.intro_text}</p>
+      </div>
       {generateImageList(data.itemData.acf.portfolio_images)}
+      <BottomCTA
+        link={data.site.siteMetadata.pages.contact.url}
+        buttonText="Get in touch"
+        titleText="Do you need a website like this?"
+        color={data.site.siteMetadata.colors.darkGrey}
+        hoverColor={data.site.siteMetadata.colors.creme}
+      />
     </Layout>
   </Container>
 )

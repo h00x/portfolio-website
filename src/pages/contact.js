@@ -11,7 +11,7 @@ const ContactPage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>Contact</h1>
+      <h1>{data.site.siteMetadata.pages.contact.name}</h1>
       <p style={{ marginTop: rhythm(3) }}>Come in contact with me</p>
       <p>Now go build something great.</p>
     </Layout>

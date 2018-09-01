@@ -11,7 +11,7 @@ const AboutMePage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>Test</h1>
+      <h1>{data.site.siteMetadata.pages.aboutDave.name}</h1>
       <p style={{ marginTop: rhythm(1) }}>test</p>
       <p>Now go build something great.</p>
     </Layout>
