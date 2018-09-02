@@ -13,7 +13,8 @@ const ContactPage = ({ data }) => (
     >
       <h1>{data.site.siteMetadata.pages.contact.name}</h1>
       <p style={{ marginTop: rhythm(1) }}>Come in contact with me</p>
-      <form name="contact" method="POST" action="/success/" data-netlify="true">
+      <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field"  action="/success/" >
+        <input type="hidden" name="bot-field" />
         <p>
           <label>
             Your Name: <input type="text" name="name" />
@@ -33,7 +34,6 @@ const ContactPage = ({ data }) => (
           <button type="submit">Send</button>
         </p>
       </form>
-      <Link to="/success/">test</Link>
     </Layout>
   </Container>
 )
