@@ -12,28 +12,26 @@ const ContactPage = ({ data }) => (
       colors={data.site.siteMetadata.colors}
     >
       <h1>{data.site.siteMetadata.pages.contact.name}</h1>
-      <p style={{ marginTop: rhythm(3) }}>Come in contact with me</p>
-      <form method="POST" netlify="true">
-        <div className="field half first">
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" />
-        </div>
-        <div className="field half">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
-        </div>
-        <div className="field">
-          <label htmlFor="message">Message</label>
-          <textarea name="message" id="message" rows="6" />
-        </div>
-        <ul className="actions">
-          <li>
-            <input type="submit" value="Send Message" className="special" />
-          </li>
-          <li>
-            <input type="reset" value="Clear" />
-          </li>
-        </ul>
+      <p style={{ marginTop: rhythm(1) }}>Come in contact with me</p>
+      <form name="contact" method="POST" data-netlify="true">
+        <p>
+          <label>
+            Your Name: <input type="text" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your Email: <input type="email" name="email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message: <textarea name="message" />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
       </form>
     </Layout>
   </Container>
