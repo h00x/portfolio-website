@@ -1,44 +1,22 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Container from '../components/container'
-import { rhythm } from '../utils/typography'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
-const ContactPage = ({ data }) => (
+const SuccessPage = ({ data }) => (
   <Container colors={data.site.siteMetadata.colors}>
     <Layout
       title={data.site.siteMetadata.title}
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>{data.site.siteMetadata.pages.contact.name}</h1>
-      <p style={{ marginTop: rhythm(1) }}>Come in contact with me</p>
-      <form name="contact" method="POST" action="/success/" data-netlify="true">
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email: <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message: <textarea name="message" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-      <Link to="/success/">test</Link>
+      <h1>Success!</h1>
+      <p>You've submitted your request</p>
     </Layout>
   </Container>
 )
 
-export default ContactPage
+export default SuccessPage
 
 export const query = graphql`
   query {
@@ -69,6 +47,13 @@ export const query = graphql`
           lightGreen
           darkGreen
           pink
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          content
         }
       }
     }
