@@ -15,6 +15,7 @@ const ContactPage = ({ data }) => (
       <p style={{ marginTop: rhythm(1) }}>Come in contact with me</p>
       <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field"  action="/success/" >
         <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
         <p>
           <label>
             Your Name: <input type="text" name="name" />
