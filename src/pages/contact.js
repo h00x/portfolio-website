@@ -13,7 +13,7 @@ const ContactPage = ({ data }) => (
     >
       <h1>{data.site.siteMetadata.pages.contact.name}</h1>
       <p style={{ marginTop: rhythm(3) }}>Come in contact with me</p>
-      <form method="POST" netlify>
+      <form method="POST" netlify="true">
         <div className="field half first">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" />
