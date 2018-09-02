@@ -24,6 +24,7 @@ const Layout = ({ children, title, pages, colors }) => (
         maxWidth: 960,
         paddingBottom: rhythm(2),
         paddingTop: rhythm(2),
+        overflow: 'auto' 
       }}
     >
       {children}

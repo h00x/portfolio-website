@@ -21,7 +21,10 @@ const PortfolioItem = ({ data }) => (
       colors={data.site.siteMetadata.colors}
     >
       <div style={{textAlign: "center"}}>
-        <h1>{data.itemData.title}</h1>
+        <h1><a href={data.itemData.acf.website_url} target="_blank" rel="noopener noreferrer" style={{
+            color: data.site.siteMetadata.colors.darkGrey,
+            fontWeight: '700',
+          }}>{data.itemData.title}</a></h1>
         <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2) }}>{data.itemData.acf.intro_text}</p>
       </div>
       {generateImageList(data.itemData.acf.portfolio_images)}
@@ -78,6 +81,7 @@ query ($id: Int!){
     slug
     acf {
       intro_text
+      website_url
       featured_image {
         source_url
       }

@@ -17,7 +17,7 @@ const PortfolioPage = ({ data }) => (
         <h1>{data.site.siteMetadata.pages.portfolio.name}</h1>
         <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2)  }}>Beautifull pictures</p>
       </div>
-      <PortfolioList obj={data.portfolioItems.edges} three={false} />
+      <PortfolioList obj={data.portfolioItems.edges} three={false} colors={data.site.siteMetadata.colors} />
       <BottomCTA
         link={data.site.siteMetadata.pages.contact.url}
         buttonText="Get in touch"
@@ -70,6 +70,7 @@ export const query = graphql`
         node {
           wordpress_id
           slug
+          title
           date
           acf {
             featured_image {

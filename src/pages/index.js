@@ -45,7 +45,8 @@ const IndexPage = ({ data }) => (
           Hellodialog.com
         </Link>
       </h2>
-      <PortfolioList obj={data.portfolioItems.edges} three={true} />
+      <h2>Latest work</h2>
+      <PortfolioList obj={data.portfolioItems.edges} three={true} colors={data.site.siteMetadata.colors} />
       <BottomCTA
         link={data.site.siteMetadata.pages.contact.url}
         buttonText="Get in touch"
@@ -106,6 +107,7 @@ export const query = graphql`
           wordpress_id
           slug
           date
+          title
           acf {
             featured_image {
               localFile {
