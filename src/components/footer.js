@@ -10,6 +10,9 @@ const Footer = ({ pages, colors }) => (
       height: ${rhythm(3)};
       position:absolute;
       bottom:0;
+      @media (max-width: 1040px) {
+        padding: 0 ${rhythm(1)};
+      }
     `}>
       <div className={css`
         margin: 0 auto;

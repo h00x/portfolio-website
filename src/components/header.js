@@ -5,7 +5,7 @@ import { css } from "react-emotion";
 
 import logoImg from '../images/unnatural-logo.svg'
 
-const Header = ({ pages, colors }) => (
+const Header = ({ pages, colors, sticky }) => (
   <nav
     style={{
       margin: '0 auto',
@@ -15,6 +15,10 @@ const Header = ({ pages, colors }) => (
       display: 'flex',
       alignItems: 'center',
     }}
+    className={css`
+      @media (max-width: 1040px) {
+        padding: ${rhythm(1)};
+      }`}
   >
     <Link
       to="/"

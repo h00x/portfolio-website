@@ -4,6 +4,7 @@ import Container from '../components/container'
 import BottomCTA from '../components/bottom-c2a'
 import { rhythm } from '../utils/typography'
 import { Link, graphql } from 'gatsby'
+import { css } from 'react-emotion'
 import PortfolioList from '../components/portfolio-list'
 
 const IndexPage = ({ data }) => (
@@ -14,7 +15,12 @@ const IndexPage = ({ data }) => (
       colors={data.site.siteMetadata.colors}
     >
       <h2 style={{ fontWeight: 'normal' }}>Hi!</h2>
-      <h1 style={{ fontSize: rhythm(3) }}>
+      <h1 className={css`
+        font-size: ${rhythm(3)};
+        @media (max-width: 600px) {
+          font-size: ${rhythm(1.5)};
+        }
+      `}>
         I'm{' '}
         <Link
           to={data.site.siteMetadata.pages.aboutDave.url}

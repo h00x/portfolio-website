@@ -4,7 +4,8 @@ import Container from '../components/container'
 import { rhythm } from '../utils/typography'
 import { graphql } from 'gatsby'
 import BottomCTA from '../components/bottom-c2a'
-import Img from "gatsby-image"
+import { css } from 'react-emotion'
+import Img from 'gatsby-image'
 
 const AboutMePage = ({ data }) => (
   <Container colors={data.site.siteMetadata.colors}>
@@ -14,19 +15,82 @@ const AboutMePage = ({ data }) => (
       colors={data.site.siteMetadata.colors}
     >
       <h1>{data.site.siteMetadata.pages.aboutDave.name}</h1>
-      <div style={{width: '70%', display: 'inline-block', float: 'left', paddingRight: rhythm(2) }}>
-        <p style={{ marginTop: rhythm(1),  marginBottom: rhythm(2) }}>{data.wordpressPage.acf.about_text}</p>
-        <div style={{display: 'inline-block', float: 'left', marginRight: rhythm(2) }}>
+      <div
+        className={css`
+          width: 70%;
+          display: inline-block;
+          float: left;
+          padding-right: ${rhythm(2)};
+          @media (max-width: 1040px) {
+            width: 100%;
+            padding: 0;
+          }
+        `}
+      >
+        <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2) }}>
+          {data.wordpressPage.acf.about_text}
+        </p>
+        <div
+          style={{
+            display: 'inline-block',
+            float: 'left',
+            marginRight: rhythm(2),
+          }}
+          className={css`
+          display: inline-block;
+          float: left;
+          margin-right: ${rhythm(2)};
+          @media (max-width: 1040px) {
+            margin: 0;
+          }
+        `}
+        >
           <h2>Skills</h2>
-          <ul>{data.wordpressPage.acf.skilled_at.map((item, index) => <li key={index}>{item.skill}</li> )}</ul>
+          <ul>
+            {data.wordpressPage.acf.skilled_at.map((item, index) => (
+              <li key={index}>{item.skill}</li>
+            ))}
+          </ul>
         </div>
-        <div style={{display: 'inline-block', float: 'left' }}>
+        <div style={{ display: 'inline-block', float: 'left' }}>
           <h2>Hobbies</h2>
-          <ul>{data.wordpressPage.acf.hobbies.map((item, index) => <li key={index}>{item.hobby}</li> )}</ul>
+          <ul>
+            {data.wordpressPage.acf.hobbies.map((item, index) => (
+              <li key={index}>{item.hobby}</li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div style={{width: '30%', display: 'inline-block', float: 'left',  marginTop: rhythm(1) }}>
-        <Img sizes={data.wordpressPage.acf.about_photo.localFile.childImageSharp.sizes} style={{ borderRadius: "50%" }} />
+      <div
+        className={css`
+          width: 30%;
+          display: inline-block;
+          float: left;
+          margin-top: ${rhythm(1)};
+          @media (max-width: 1040px) {
+            width: 100%;
+          }
+        `}
+      >
+        <Img
+          sizes={
+            data.wordpressPage.acf.about_photo.localFile.childImageSharp.sizes
+          }
+          style={{ borderRadius: '50%' }}
+          className={css`
+          @media (max-width: 1040px) {
+            margin 0 auto;
+            width: 30%;
+          }
+          @media (max-width: 720px) {
+            margin 0 auto;
+            width: 60%;
+          }
+          @media (max-width: 500px) {
+            width: 100%;
+          }
+          `}
+        />
       </div>
       <BottomCTA
         link={data.site.siteMetadata.pages.contact.url}
@@ -73,7 +137,7 @@ export const query = graphql`
         }
       }
     }
-    wordpressPage(wordpress_id: {eq: 43}) {
+    wordpressPage(wordpress_id: { eq: 43 }) {
       title
       acf {
         about_text
