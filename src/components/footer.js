@@ -40,7 +40,7 @@ const Footer = ({ pages, colors }) => (
                 style={{
                   display: 'inline-block',
                   margin: '0',
-                  marginRight: rhythm(1),
+                  marginLeft: rhythm(1),
                 }}
               >
                 <Link
