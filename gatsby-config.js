@@ -70,6 +70,38 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/images/favicon.png",
+
+        appName: "Unnatural", 
+        appDescription: "Portfolio website of Dave Hoeks",
+        developerName: "Dave Hoeks",
+        developerURL: "http://www.unnatural.nl",
+        dir: 'auto',
+        lang: 'en-US',
+        background: '#95eedd',
+        theme_color: '#95eedd',
+        display: 'standalone',
+        orientation: 'any',
+        start_url: '/',
+        version: '1.0',
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
     'gatsby-plugin-offline',
   ],
 }

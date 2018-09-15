@@ -13,9 +13,9 @@ const PortfolioPage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <div style={{textAlign: "center"}}>
+      <div>
         <h1>{data.site.siteMetadata.pages.portfolio.name}</h1>
-        <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2)  }}>Beautifull pictures</p>
+        <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2) }}>Here is a selection of my most beautifull work.</p>
       </div>
       <PortfolioList obj={data.portfolioItems.edges} three={false} colors={data.site.siteMetadata.colors} />
       <BottomCTA

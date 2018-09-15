@@ -14,7 +14,9 @@ const AboutMePage = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <h1>{data.site.siteMetadata.pages.aboutDave.name}</h1>
+      <h1 className={css`
+          margin-bottom: 0;
+        `}>{data.site.siteMetadata.pages.aboutDave.name}</h1>
       <div
         className={css`
           width: 70%;

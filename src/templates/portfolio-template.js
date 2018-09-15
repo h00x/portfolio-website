@@ -8,7 +8,8 @@ import Img from "gatsby-image";
 
 const generateImageList = (obj) => {
   let imgList = obj.map((item, index) => {
-    return <Img key={index} sizes={item.image.localFile.childImageSharp.sizes} />
+    console.log(item.image.localFile.childImageSharp.sizes);
+    return <Img key={index} sizes={item.image.localFile.childImageSharp.sizes} alt={item.text} />
   });
   return imgList;
 }
@@ -20,10 +21,11 @@ const PortfolioItem = ({ data }) => (
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
-      <div style={{textAlign: "center"}}>
+      <div>
         <h1><a href={data.itemData.acf.website_url} target="_blank" rel="noopener noreferrer" style={{
-            color: data.site.siteMetadata.colors.darkGrey,
+            color: data.site.siteMetadata.colors.creme,
             fontWeight: '700',
+            textDecoration: 'underline'
           }}>{data.itemData.title}</a></h1>
         <p style={{ marginTop: rhythm(1), marginBottom: rhythm(2) }}>{data.itemData.acf.intro_text}</p>
       </div>

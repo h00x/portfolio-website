@@ -119,6 +119,7 @@ const ContactPage = ({ data }) => (
           float: left;
           @media (max-width: 1040px) {
             width: 100%;
+            margin-top: ${rhythm(4)}
           }
         `}
       >

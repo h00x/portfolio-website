@@ -7,11 +7,11 @@ const Footer = ({ pages, colors }) => (
     <footer className={css`
       background-color: ${colors.creme};
       width: 100%;
-      height: ${rhythm(3)};
-      position:absolute;
+      position: absolute;
       bottom:0;
       @media (max-width: 1040px) {
         padding: 0 ${rhythm(1)};
+        position: relative;
       }
     `}>
       <div className={css`
@@ -19,6 +19,9 @@ const Footer = ({ pages, colors }) => (
         max-width: 960px;
         padding-top: ${rhythm(1)};
         padding-bottom: ${rhythm(1)};
+        @media (max-width: 768px) {
+          text-align: center;
+        }
       `}>
         <p className={css`
           margin: 0;
@@ -28,23 +31,31 @@ const Footer = ({ pages, colors }) => (
           &copy; Unnatural.nl
         </p>
         <ul
-          style={{
-            listStyle: 'none',
-            margin: '0',
-            display: 'inline-block',
-            float: 'right'
-          }}
+          className={css`
+            list-style: none;
+            margin: 0;
+            display: inline-block;
+            float: right;
+            @media (max-width: 768px) {
+              display: block;
+              float: none;
+            }
+          `}
         >
           {Object.keys(pages).map((item, index) => {
             let page = pages[item]
             return (
               <li
                 key={index}
-                style={{
-                  display: 'inline-block',
-                  margin: '0',
-                  marginLeft: rhythm(1),
-                }}
+                className={css`
+                  display: inline-block;
+                  margin: 0;
+                  margin-left: ${rhythm(1)};
+                  @media (max-width: 768px) {
+                    display: block;
+                    margin-left: 0;
+                  }
+                `}
               >
                 <Link
                   to={page.url}

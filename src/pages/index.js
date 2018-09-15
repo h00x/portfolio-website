@@ -40,16 +40,15 @@ const IndexPage = ({ data }) => (
         >
           (hire me)
         </Link>
-        . Beekeper and avid surfer.{' '}
+        . Loves to BBQ and surf.{' '}
       </h1>
       <h2 style={{ fontSize: rhythm(1.5), fontWeight: '400', marginBottom: rhythm(3) }}>
         Currently working at{' '}
-        <Link
-          to={data.site.siteMetadata.pages.contact.url}
-          style={{ color: data.site.siteMetadata.colors.darkGrey }}
-        >
+        <a href="https://www.hellodialog.com" target="_blank" rel="noopener noreferrer" style={{
+            color: data.site.siteMetadata.colors.darkGrey
+          }}>
           Hellodialog.com
-        </Link>
+        </a>
       </h2>
       <h2>Latest work</h2>
       <PortfolioList obj={data.portfolioItems.edges} three={true} colors={data.site.siteMetadata.colors} />
