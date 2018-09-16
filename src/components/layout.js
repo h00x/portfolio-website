@@ -18,6 +18,7 @@ const Layout = ({ children, title, pages, colors }) => (
       <meta charSet="utf-8" />
       <meta name="description" content="The portfolio website of Dave Hoeks. An experienced Webdesigner with a history of working in the marketing and advertising industry."/>
       <meta name="keywords" content="portfolio, dave, hoeks, webdesign, websites, design"/>
+      <meta name="google-site-verification" content="ZAvQIhYtBxI5YhtJcToCQKfP55g15VKZ-A9Ew6Qwe5Q" />
     </Helmet>
     <Header pages={pages} colors={colors} />
     {/* <Waypoint
