@@ -13,13 +13,11 @@ const Layout = ({ children, title, pages, colors }) => (
   <>
     <Helmet
       title={title}
-      meta={[
-        { name: 'description', content: 'The portfolio website of Dave Hoeks. An experienced Webdesigner with a history of working in the marketing and advertising industry.' },
-        { name: 'keywords', content: 'portfolio, dave, hoeks, webdesign, websites, design' },
-      ]}
     >
       <html lang="en" />
       <meta charSet="utf-8" />
+      <meta name="description" content="The portfolio website of Dave Hoeks. An experienced Webdesigner with a history of working in the marketing and advertising industry."/>
+      <meta name="keywords" content="portfolio, dave, hoeks, webdesign, websites, design"/>
     </Helmet>
     <Header pages={pages} colors={colors} />
     {/* <Waypoint
