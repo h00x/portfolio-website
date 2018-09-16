@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
       result.data.allWordpressWpPortfolio.edges.forEach(({ node }) => {
         createPage({
-          path: `/${node.slug}/`,
+          path: `/portfolio/${node.slug}/`,
           component: path.resolve(`./src/templates/portfolio-template.js`),
           context: {
             id: node.wordpress_id,

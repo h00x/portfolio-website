@@ -3,6 +3,15 @@ import { css } from "react-emotion";
 import { rhythm } from "../utils/typography";
 import { Link } from 'gatsby'
 
+import gitHubIcon from '../images/github.svg'
+import linkedInIcon from '../images/linkedin.svg'
+import dribbbleIcon from '../images/dribbble.svg'
+
+const linkStyle = ` transition: opacity 0.2s ease-in-out;
+                    &:hover {
+                      opacity: 0.75;
+                    }`
+
 const Footer = ({ pages, colors }) => (
     <footer className={css`
       background-color: ${colors.creme};
@@ -30,6 +39,56 @@ const Footer = ({ pages, colors }) => (
         `}>
           &copy; Unnatural.nl
         </p>
+        <div className={css`
+          display: inline-block;
+          @media (max-width: 768px) {
+            display: block;
+            margin: ${rhythm(0.5)} 0 ${rhythm(0.5)} 0;
+          }
+        `}>
+          <a href="https://github.com/h00x" target="_blank" rel="noopener noreferrer">
+            <img
+              src={gitHubIcon}
+              alt="GitHub icon"
+              width="16"
+              height="16"
+              className={css`
+                margin: 0;
+                margin-left: ${rhythm(2)};
+                ${linkStyle}
+                @media (max-width: 768px) {
+                  margin-left: 0;
+                }
+              `}
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/davehoeks/" target="_blank" rel="noopener noreferrer">
+            <img
+              src={linkedInIcon}
+              alt="LinkedIn icon"
+              width="16"
+              height="16"
+              className={css`
+                margin: 0;
+                margin-left: ${rhythm(0.5)};
+                ${linkStyle}
+              `}
+            />
+          </a>
+          <a href="https://dribbble.com/Hoeks" target="_blank" rel="noopener noreferrer">
+            <img
+              src={dribbbleIcon}
+              alt="Dribbble icon"
+              width="16"
+              height="16"
+              className={css`
+                margin: 0;
+                margin-left: ${rhythm(0.5)};
+                ${linkStyle}
+              `}
+            />
+          </a>
+        </div>
         <ul
           className={css`
             list-style: none;

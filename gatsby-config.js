@@ -102,6 +102,14 @@ module.exports = {
         }
       }
     },
+    // {
+    // resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'UA-37778923-1',
+    //     // Puts tracking script in the head instead of the body
+    //     head: true,
+    //   }
+    // },
     'gatsby-plugin-offline',
   ],
 }

@@ -6,7 +6,7 @@ import { css } from 'react-emotion'
 
 export const PortfolioList = ({ obj, three, colors }) => {
   let imgList = obj.map((item, index) => {
-    let link = `/${item.node.slug}/`;
+    let link = `/portfolio/${item.node.slug}/`;
     return (
       <Link to={link} key={index} style={{overflow: 'hidden'}} className={css`&:hover .titlePort {opacity: 1 !important; transition: opacity 0.3s ease-in-out;}`}>
         <div style={{position: 'absolute', zIndex: '2', padding: rhythm(1), backgroundColor: 'rgb(149, 238, 221, 0.5)', color: colors.darkGrey, opacity: '0' }} className="titlePort" >{item.node.title}</div>

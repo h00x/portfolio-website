@@ -8,7 +8,6 @@ import Img from "gatsby-image";
 
 const generateImageList = (obj) => {
   let imgList = obj.map((item, index) => {
-    console.log(item.image.localFile.childImageSharp.sizes);
     return <Img key={index} sizes={item.image.localFile.childImageSharp.sizes} alt={item.text} />
   });
   return imgList;
