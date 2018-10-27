@@ -4,9 +4,8 @@ import Container from '../components/container'
 import { graphql } from 'gatsby'
 
 const NotFoundPage = ({ data }) => (
-  <Container colors={data.site.siteMetadata.colors}>
+  <Container colors={data.site.siteMetadata.colors} title={data.site.siteMetadata.title}>
     <Layout
-      title={data.site.siteMetadata.title}
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
