@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { rhythm } from "../utils/typography"
 import Header from './header'
+import StickyHeader from './header-sticky'
 import Footer from './footer'
 import { css } from 'react-emotion'
 
@@ -31,10 +32,12 @@ class Layout extends React.Component {
       }
     });
   }
+
   render() {
     return (
       <>
         <Header pages={this.props.pages} colors={this.props.colors} sticky={this.state.sticky} />
+        <StickyHeader pages={this.props.pages} colors={this.props.colors} sticky={this.state.sticky} />
         <section
           style={{
             margin: '0 auto',
@@ -42,7 +45,6 @@ class Layout extends React.Component {
             paddingBottom: rhythm(4),
             paddingTop: rhythm(2),
             overflow: 'auto',
-            marginTop: `${this.state.sticky ? '182px' : ''}`
           }}
           className={css`
             @media (max-width: 1040px) {
