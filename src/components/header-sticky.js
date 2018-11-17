@@ -1,28 +1,51 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { rhythm } from '../utils/typography'
-import { css } from 'react-emotion'
+import { css, keyframes } from 'react-emotion'
 import Menu from './menu'
 
-import logoImg from '../images/unnatural-logo.svg'
+import logoImgSml from '../images/unnatural-logo-sml.svg'
 
 class Header extends React.Component {
   render() {
+    const fadeIn = keyframes`
+      from {
+        opacity: 0;
+        transform: translateY(-80px)
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px)
+      }
+    `;
+    
+    const fadeOut = keyframes`
+      from {
+        opacity: 1;
+        transform: translateY(0px)
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-80px)
+      }
+    `;
+
     return (
       <nav
+        style={{
+          animation: `${this.props.sticky ? fadeIn : fadeOut} ${this.props.sticky ? '0.5s' : '0s'} forwards`,
+          willChange: 'transform',
+        }}
         className={css`
-          position: relative;
+          position: fixed;
           z-index: 100;
+          background-color: ${this.props.colors.creme};
+          padding: 1em;
           width: 100%;
           top: 0;
-          transform: translate3d(0, 0, 0);
-          padding-top: ${rhythm(3)};
-          padding-bottom: ${rhythm(1)};
+          left: 0;
           display: flex;
           align-items: center;
-          @media (max-width: 1040px) {
-            padding: ${rhythm(1)} ${rhythm(1)} 0 ${rhythm(1)};
-          }
         `}
       >
         <div 
@@ -43,16 +66,16 @@ class Header extends React.Component {
             }}
           >
             <img
-              src={logoImg}
+              src={logoImgSml}
               alt="Unnatural logo"
-              width={"175"}
-              height={"67"}
+              width={"135"}
+              height={"30"}
               className={css`
                 margin: 0;
                 margin-right: ${rhythm(2)};
                 display: inline-block;
-                width: 175px;
-                height: 67px;
+                width: 135px;
+                height: 30px;
                 max-width: none;
                 @media (max-width: 768px) {
                   margin-right: ${rhythm(1)};

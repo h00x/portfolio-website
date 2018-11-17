@@ -7,9 +7,8 @@ import BottomCTA from '../components/bottom-c2a'
 import PortfolioList from '../components/portfolio-list'
 
 const PortfolioPage = ({ data }) => (
-  <Container colors={data.site.siteMetadata.colors}>
+  <Container colors={data.site.siteMetadata.colors} title={data.site.siteMetadata.title}>
     <Layout
-      title={data.site.siteMetadata.title}
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >

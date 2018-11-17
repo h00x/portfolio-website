@@ -8,9 +8,8 @@ import { css } from 'react-emotion'
 import Img from 'gatsby-image'
 
 const AboutMePage = ({ data }) => (
-  <Container colors={data.site.siteMetadata.colors}>
+  <Container colors={data.site.siteMetadata.colors} title={data.site.siteMetadata.title}>
     <Layout
-      title={data.site.siteMetadata.title}
       pages={data.site.siteMetadata.pages}
       colors={data.site.siteMetadata.colors}
     >
